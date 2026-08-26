@@ -1,0 +1,59 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  https://www.openbanking.org.uk/apps/moneybox-2/ (200) — UK Open Banking app directory;
+  https://apitracker.io/a/moneyboxapp (200) — every API field empty;
+  https://www.moneyboxapp.com/.well-known/security.txt (200).
+note: >-
+  Moneybox publishes no machine-readable API contract, so there is nothing to assert
+  contract-level conformance against. The entries below record the standards its market
+  DOES have and the honest verdict for each. conforms:false here means "Moneybox does not
+  publish a conformant contract", NOT that the company is non-compliant with regulation it
+  is subject to as a firm.
+standards:
+- id: rfc9116
+  name: security.txt (RFC 9116)
+  conforms: true
+  evidence: >-
+    https://www.moneyboxapp.com/.well-known/security.txt returns 200 text/plain with a
+    valid Contact and a future-dated Expires (2027-08-20T00:00:00Z). Served identically on
+    the apex, www and api hosts. Saved verbatim to well-known/moneybox-security.txt.
+- id: uk-open-banking
+  name: UK Open Banking Standard (OBIE)
+  conforms: false
+  role: consumer
+  evidence: >-
+    The UK Open Banking app directory lists Moneybox under bank account aggregators — it
+    participates as a third-party provider CONSUMING ASPSP APIs to read customer
+    transactions for round-ups. It is not an ASPSP and publishes no Read/Write API of its
+    own, so there is no OBIE-conformant contract to measure.
+    Source: https://www.openbanking.org.uk/apps/moneybox-2/
+- id: psd2
+  name: PSD2 / UK PSRs account information services
+  conforms: false
+  role: consumer
+  evidence: >-
+    Same posture as uk-open-banking — Moneybox operates on the account-information
+    consumer side of PSD2/UK PSRs. No dedicated-interface API is published.
+- id: oauth2
+  name: OAuth 2.0
+  conforms: false
+  evidence: >-
+    No /.well-known/oauth-authorization-server or /.well-known/openid-configuration is
+    served on www.moneyboxapp.com or api.moneyboxapp.com (both 403 behind the WAF, and no
+    published authorization-server documentation exists anywhere on the site).
+- id: rfc9457
+  name: Problem Details for HTTP APIs (RFC 9457)
+  conforms: false
+  evidence: No public contract or error reference exists to evaluate.
+domain_standard:
+  applicable: true
+  market: UK retail savings, investment and pensions
+  candidates:
+  - UK Open Banking Read/Write API (OBIE)
+  - FDX
+  - ISO 20022
+  declared: none
+  evidence: >-
+    REWARD-ONLY dimension. No Moneybox-published contract declares a domain standard,
+    because no Moneybox-published contract exists. Recorded as absent, not as a failure.

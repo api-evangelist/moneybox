@@ -1,0 +1,60 @@
+generated: '2026-08-26'
+method: probed
+source: >-
+  Direct HTTPS probes of /.well-known/* on every Moneybox-controlled host reachable on
+  2026-08-26. Note: moneyboxapp.com sits behind a Cloudflare WAF that answers 403 to
+  non-browser clients on every path EXCEPT /.well-known/*, which is served normally —
+  so the 403 rows below are our crawler being turned away, not evidence of absence.
+hosts:
+- host: www.moneyboxapp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: moneybox-security.txt
+    note: RFC 9116, 70 bytes, text/plain. Contact + Expires only.
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+- host: moneyboxapp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: moneybox-security.txt
+    note: Identical body to the www host.
+- host: api.moneyboxapp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: moneybox-security.txt
+    note: >-
+      Identical body to the www host. api.moneyboxapp.com resolves to the same Cloudflare
+      edge and is the Moneybox mobile app backend; it publishes no public contract and
+      answers 403 to every non-/.well-known/ path.
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+findings:
+  security_txt: served
+  api_catalog: not served
+  openid_configuration: not served
+  agent_card: not found
+  note: >-
+    security.txt is the only machine-readable document Moneybox publishes at a well-known
+    location. No agent card was returned on either the A2A 0.3 path or the legacy path on
+    any host, so no a2a/ artifact was authored.

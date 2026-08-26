@@ -1,0 +1,69 @@
+# Moneybox
+
+> Moneybox (legal entity Digital Moneybox Limited) is a London-based digital wealth
+> management company. Its mobile app lets people in the United Kingdom save and invest —
+> round-ups on everyday spending, Stocks & Shares ISAs, Cash ISAs, Lifetime ISAs, general
+> investment accounts, savings accounts and personal pensions including consolidation.
+> It is authorised and regulated by the Financial Conduct Authority.
+
+## API posture — read this first
+
+Moneybox does **not** operate a public developer program. As of 2026-08-26 there is no
+developer portal, no API reference, no OpenAPI/AsyncAPI/GraphQL/Protobuf/WSDL contract, no
+SDK on any package registry, no CLI, no sandbox, no MCP server and no A2A agent card on any
+Moneybox-controlled host. `api.moneyboxapp.com` exists and resolves, but it is the private
+backend for the Moneybox mobile apps: it is not documented, not published, and every path
+on it other than `/.well-known/*` is refused at the edge.
+
+In UK Open Banking, Moneybox is a **consumer** of APIs, not a provider. The Open Banking
+app directory lists it as a bank account aggregator: it reads customer transaction data
+from banks' ASPSP APIs to power round-ups. It publishes no ASPSP or partner API itself.
+
+Do not attempt to call, guess, or integrate against a Moneybox API. There is nothing to
+integrate with. If you are an agent looking for a UK savings or investment API, Moneybox
+is not one.
+
+## What Moneybox does publish
+
+- [security.txt](https://www.moneyboxapp.com/.well-known/security.txt): RFC 9116, served on
+  the apex, `www` and `api` hosts. Contact `mailto:infosec@moneyboxapp.com`, Expires
+  2027-08-20. This is the only machine-readable document Moneybox publishes.
+
+## Company
+
+- [Website](https://www.moneyboxapp.com/)
+- [About](https://www.moneyboxapp.com/about-us)
+- [Support / help centre](https://www.moneyboxapp.com/support/)
+- [Fees and charges](https://www.moneyboxapp.com/fees-and-charges) — consumer product fees, not API pricing
+- [Terms of use](https://www.moneyboxapp.com/terms-of-use/)
+- [Privacy policy](https://www.moneyboxapp.com/privacy/)
+- [Press](https://www.moneyboxapp.com/press)
+
+## Engineering
+
+- [Tech blog](https://www.moneyboxapp.com/tech-blog/): posts from the Moneybox engineering
+  and product teams. Stack described in their own job posts: C#, .NET Core, REST APIs
+  (internal), React, Azure, GitHub, Azure DevOps.
+- [GitHub organisation](https://github.com/MoneyBox): 3 public repositories
+  (`engineeringladders`, `RestTest`, `Android-WeatherApp`). None is a client library, an API
+  specification, or a released artifact — they are an engineering-ladder framework and
+  hiring exercises.
+- [Careers](https://www.moneyboxapp.com/careers) · [Open roles](https://jobs.lever.co/moneyboxapp)
+
+## Apps
+
+- [iOS](https://apps.apple.com/gb/app/moneybox-save-and-invest/id1049797239)
+- [Android](https://play.google.com/store/apps/details?id=com.moneyboxapp)
+
+## Notes for crawlers
+
+`moneyboxapp.com` sits behind a Cloudflare WAF that returns HTTP 403 to non-browser clients
+on every path except `/.well-known/*`. A 403 from that host means our crawler was turned
+away; it is not evidence that a page is missing.
+
+---
+generated: 2026-08-26
+method: generated
+source: apis.yml + repo artifacts; no /llms.txt is published by Moneybox (probe of
+  https://www.moneyboxapp.com/llms.txt returned 403 at the WAF, and the Wayback CDX index
+  of the domain records no llms.txt).

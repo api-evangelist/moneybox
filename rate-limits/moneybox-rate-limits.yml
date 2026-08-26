@@ -1,0 +1,14 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  https://apitracker.io/a/moneyboxapp (200, no developer docs, no auth, no sandbox);
+  probes of https://api.moneyboxapp.com/openapi.json|/swagger.json|/docs|/api-docs
+  (all 403 at the Cloudflare WAF); Wayback CDX index of moneyboxapp.com shows no
+  developer or API reference path in 7,075 archived URLs.
+limit_count: 0
+limits: []
+headers: []
+note: >-
+  Moneybox publishes no public API and therefore no rate-limit documentation. No
+  X-RateLimit-*, RateLimit-* or Retry-After signalling could be observed, because there
+  is no unauthenticated endpoint to observe. An honest zero, not an unmeasured gap.

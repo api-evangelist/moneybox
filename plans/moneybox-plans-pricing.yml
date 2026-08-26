@@ -1,0 +1,17 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  https://apitracker.io/a/moneyboxapp (200, every API/pricing field empty);
+  https://www.openbanking.org.uk/apps/moneybox-2/ (200);
+  Wayback CDX index of moneyboxapp.com (7,075 distinct archived URLs, 200-only) contains
+  no /developers, /api, /pricing-api or plan page for any API product.
+plan_count: 0
+plans: []
+note: >-
+  Moneybox sells no API product, so there are no API plans to record. It does publish
+  CONSUMER product pricing — platform and subscription fees at
+  https://www.moneyboxapp.com/fees-and-charges (last confirmed live in the Wayback
+  Machine on 2025-08-26) — but those are fees on savings, ISA, investment and pension
+  accounts held by retail customers, not the price of API access, and they are
+  deliberately NOT recorded as plans here. An honest zero.
+consumer_pricing_page: https://www.moneyboxapp.com/fees-and-charges
