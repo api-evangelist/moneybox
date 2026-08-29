@@ -12,6 +12,17 @@ description: >-
   sandbox or partner API surface exists on any Moneybox-controlled host. The one machine-readable
   artifact it publishes is an RFC 9116 security.txt served from every moneyboxapp.com host.
 url: https://raw.githubusercontent.com/api-evangelist/moneybox/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d2/28/64/d2286435-aee9-3e84-5794-af0a706a247a/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg
 x-type: company
 x-source: harvest:secondary-market
