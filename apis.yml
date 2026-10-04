@@ -44,7 +44,7 @@ created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
-- Financial-Services
+- Financial Services
 - Fintech
 - Wealth Management
 - Savings
@@ -66,6 +66,7 @@ tags_raw:
 - Consumer Finance
 - Mobile Apps
 - United Kingdom
+- Financial-Services
 apis: []
 maintainers:
 - FN: Kin Lane
