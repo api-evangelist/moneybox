@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "moneybox",
+    "captured_at": "2026-10-11T191034",
+    "source_url": "https://www.moneyboxapp.com/",
+    "source_type": "Website",
+    "file": "moneybox-2026-10-11T191034.png",
+    "bytes": 293303,
+    "capture": "playwright-local"
+  }
+]
